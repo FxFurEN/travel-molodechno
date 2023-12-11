@@ -1,26 +1,34 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <MenuBar/>
+  <MainPart class="otstyp"/>
+  <AboutCity class="otstyp"/>
+  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MenuBar from './components/MenuBar.vue';
+import MainPart from './components/MainPart.vue'
+import AboutCity from './components/AboutCity.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    MenuBar,
+    MainPart,
+    AboutCity
+
+  
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+*{
+    margin: 0 ;
+    font-family: Lato;
+}
+
+.otstyp{
+  margin-bottom: 5%;
 }
 </style>
