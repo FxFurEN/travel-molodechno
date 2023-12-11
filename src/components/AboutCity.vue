@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-           <h2>О городе</h2> 
+           <h2 style="opacity: 0.8">О городе</h2> 
         </div>
         <div class="main-container">
         <div class="table-container">
@@ -9,8 +9,8 @@
             </div>
             <div class="table-row">
                 <div class="row-sub-container">
-                    <div class="row-item">Краткая история</div>
-                    <div class="row-item">Город Молодечно имеет богатую историю, 
+                    <div class="row-item text-header-row-item">Краткая история</div>
+                    <div class="row-item text-row-item">Город Молодечно имеет богатую историю, 
                         которая насчитывает более 600 лет. В XIV веке он был крупным 
                         торговым центром, а в XVI веке - местом проведения международных 
                         ярмарок. В XVII веке город был разрушен во время русско-польской 
@@ -18,12 +18,12 @@
                         центром. В XIX веке в городе были построены многие каменные 
                         здания, в том числе костёл Святого Михаила, православный собор 
                         и синагога.</div>
-                    <div class="row-item">Расположение</div>
-                    <div class="row-item">Молодечно расположен в 73 километрах к 
+                    <div class="row-item text-header-row-item">Расположение</div>
+                    <div class="row-item text-row-item">Молодечно расположен в 73 километрах к 
                         северо-западу от Минска. Город находится на пересечении 
                         важных автомобильных и железнодорожных путей.</div>
                 </div>
-            <div class="row-item"><img src="../assets/AboutCity.svg"></div>
+            <div class="row-item "><img src="../assets/AboutCity.svg"></div>
             
             </div>
         </div>
@@ -42,7 +42,7 @@ export default {
 * {
     
     color: #313131;
-    font-family: Inter;
+    font-family: Lato;
     font-size: 48px;
     font-style: normal;
     font-weight: 700;
@@ -67,8 +67,26 @@ h2{
         flex-flow: row nowrap;
         width: 100%;
         .row-item {
+            opacity: 0.8;
             display: flex;
             font-size: 14px;
+            
+        }
+        .text-header-row-item{
+            color: #313131;
+            font-size: 31px;
+            font-style: normal;
+            font-weight: 900;
+            line-height: 32px; /* 103.226% */
+            margin-bottom: 2%;
+        }
+        .text-row-item{
+            color: #313131;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px; /* 120% */
+            margin-bottom: 10%;
         }
         .row-sub-container {
             display: flex;

@@ -25,6 +25,7 @@ export default {
         font-family: Montserrat; 
         font-weight: 900; 
         line-height: 64px;
+        text-shadow: 1px 1px 2px pink;
     }
     
 }
