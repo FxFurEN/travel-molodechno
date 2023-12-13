@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-           <h2 style="opacity: 0.8">О городе</h2> 
+           <h2>О городе</h2> 
         </div>
         <div class="main-container">
         <div class="table-container">
@@ -38,25 +38,19 @@ export default {
 }
 </script>
     
-<style lang="scss">
+<style lang="scss" scoped>
 * {
     
     color: #313131;
-    font-family: Lato;
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 56px; /* 116.667% */
 }
 h2{
-    margin-left: 10%;
-    margin-bottom: 5%;
+    opacity: 0.8;
+    color: #313131;
 }
 .main-container {
   width: 100%;
   height: 100%;
   display: flex;
-  margin: 0;
   .table-container {
     display: flex;
     flex-flow: column nowrap;

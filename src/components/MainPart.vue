@@ -15,6 +15,7 @@ export default {
 .main-part {
     height: 100vh;
     width: 100%;
+    min-width: 100%; 
     display: flex;
     background-image: url(../assets/main-part.svg);
     background-size: cover;
