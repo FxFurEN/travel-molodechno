@@ -2,7 +2,9 @@
   <MenuBar/>
   <MainPart class="otstyp"/>
   <AboutCity class="otstyp"/>
-  <LandmarkBlock/>
+  <LandmarkBlock class="otstyp"/>
+  <EntertainmentCity />
+  <InteractiveMap/>
 </template>
 
 <script>
@@ -10,6 +12,8 @@ import MenuBar from './components/MenuBar.vue';
 import MainPart from './components/MainPart.vue'
 import AboutCity from './components/AboutCity.vue';
 import LandmarkBlock from './components/landmark-block/LandmarkBlock.vue'
+import EntertainmentCity from  './components/EntertainmentCity.vue';
+import InteractiveMap from './components/InteractiveMap.vue';
 
 export default {
   name: 'App',
@@ -17,7 +21,9 @@ export default {
     MenuBar,
     MainPart,
     LandmarkBlock,
-    AboutCity
+    AboutCity,
+    EntertainmentCity,
+    InteractiveMap
 
   
   }
