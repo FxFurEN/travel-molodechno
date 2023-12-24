@@ -1,5 +1,5 @@
 <template>
-    <div style="background: linear-gradient(0deg, #000 7.21%, rgba(0, 0, 0, 0.31) 68.74%, rgba(0, 0, 0, 0.00) 100%); height:10vh;"></div>
+    <div style="background: linear-gradient(0deg, #000 7.21%, rgba(0, 0, 0, 0.31) 68.74%, rgba(0, 0, 0, 0.00) 100%); height:15vh;"></div>
    <div class="container">
         <div>
            <h2>Достопримечательности</h2> 
