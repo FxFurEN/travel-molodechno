@@ -1,10 +1,11 @@
 <template>
-    <div>
-        <figure>
-            <img :src="images" alt="Landmark Image">
-            <figcaption>{{ name }}</figcaption>
-        </figure>
-    </div>
+<div class="card">
+  <img :src="images" alt="Landmark Image">
+  <div class="card__content">
+    <p class="card__title">Тест</p>
+  </div>
+</div>
+
 </template>
 
 <script>
@@ -17,42 +18,62 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-figure {
-    position: relative;  // Чтобы позиционировать относительно контейнера
-    display: grid;
-    border-radius: 10px;
-    overflow: hidden;
-    cursor: pointer;
-    figcaption {
-            display: grid;
-            align-items: end;
-            font-family: sans-serif;
-            font-size: 2.3rem;
-            font-weight: bold;
-            color: #0000;
-            padding: .75rem;
-            background: var(--c,#0009);
-            clip-path: inset(0 var(--_i,100%) 0 0);
-            -webkit-mask: linear-gradient(#000 0 0), linear-gradient(#000 0 0);
-            -webkit-mask-composite: xor;
-            -webkit-mask-clip: text, padding-box;
-            margin: -1px;
+.card {
+  position: relative;
+  width: 90%;
+  height: 35%;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  box-shadow: 0 0 0 5px #ffffff80;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
+.card svg {
+  width: 48px;
+  fill: #333;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-figure > * {
-  grid-area: 1/1;
-  transition: .4s;
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
 }
-figure:hover figcaption{
-  --_i: 0%;
+
+.card__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  transform: rotateX(-90deg);
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-figure:hover img {
-  transform: scale(1.2);
+
+.card:hover .card__content {
+  transform: rotateX(0deg);
 }
-@supports not (-webkit-mask-clip: text) {
-  figure figcaption {
-   -webkit-mask: none;
-   color: #fff;
-  }
+
+.card__title {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  font-weight: 700;
 }
+
+
+
+
+
+
+
+
+
 </style>

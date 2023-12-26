@@ -21,69 +21,52 @@
               </ul>
             </div>
           </div>
-          <div class="card-container">
-            <swiper
-                :modules="modules"
-                :slides-per-view="3"
-                :space-between="50"
-                navigation
-                :pagination="{ clickable: true }"
-                :scrollbar="{ draggable: true }"
-                @swiper="onSwiper"
-                @slideChange="onSlideChange"
-              >
-                <swiper-slide>Slide 1</swiper-slide>
-                <swiper-slide>Slide 2</swiper-slide>
-                <swiper-slide>Slide 3</swiper-slide>
-                ...
-              </swiper>
-          </div>
+          <Swiper
+            effect="Coverflow"
+            grabCursor="true"
+            :slidesPerView="3"
+            :spaceBetween="30"
+            loop="true"
+            :coverflowEffect="{
+              rotate: 50,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: true,
+            }"
+          
+          >
+              <SwiperSlide v-for="card in cards" :key="card.name">
+                <LandmarkCard :images="card.images" />
+              </SwiperSlide>
+            </Swiper>
+           
         </div>
       </div>
     </div>
   </div>
+  
 </template>
 <script >
-//import LandmarkCard from './LandmarkCard.vue';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import LandmarkCard from './LandmarkCard.vue';
 
-  // Import Swiper Vue.js components
-  import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Swiper, SwiperSlide } from 'swiper/vue';
 
-  // Import Swiper styles
-  import 'swiper/css';
-  import 'swiper/css/navigation';
-  import 'swiper/css/pagination';
-  import 'swiper/css/scrollbar';
-
-  // Import Swiper styles
-  import 'swiper/css';
+import 'swiper/css';
 
 export default{
     components: {
-      //LandmarkCard
+      LandmarkCard,
       Swiper,
       SwiperSlide
-    },
-    setup() {
-      const onSwiper = (swiper) => {
-        console.log(swiper);
-      };
-      const onSlideChange = () => {
-        console.log('slide change');
-      };
-      return {
-        onSwiper,
-        onSlideChange,
-        modules: [Navigation, Pagination, Scrollbar, A11y],
-      };
     },
   data() {
     return {
       cards: [
-        { name: 'Карточка 1', images: require('../../assets/test.svg') },
-        { name: 'Карточка 2', images: require('../../assets/test1.svg') },
-        { name: 'Карточка 3', images: require('../../assets/test.svg') },
+        { name: '1', images: require('../../assets/test.svg') },
+        { name: '2', images: require('../../assets/test1.svg') },
+        { name: '3', images: require('../../assets/test.svg') },
+        { name: '4', images: require('../../assets/test1.svg') },
       ],
     };
   },
@@ -100,6 +83,7 @@ h2{
   font-size: 50px;
   color: #ffff;
 }
+
 .container{
   background: linear-gradient(180deg, #000 7.21%, rgba(0, 0, 0, 0.31) 68.74%, rgba(0, 0, 0, 0.00) 100%),url(../../assets/landmark-bg.svg);
   background-size: cover;
@@ -140,7 +124,7 @@ h2{
           line-height: 24px; /* 120% */
       }
       .row-sub-container {
-        width: 40%;
+        width: 50%;
           display: flex;
           flex-flow: column nowrap;
       }
@@ -148,19 +132,7 @@ h2{
       .row-sub-container .row-item:last-child {
           border-bottom: 0;
       }
-      .card-container {
-      position: relative;
-      overflow: hidden;
-      }
-
-      .cards-wrapper {
-      display: flex;
-      transition: transform 0.5s ease; /* Анимация смещения */
-      }
-
-      .card {
-      margin-right: -210px; /* Интервал между карточками */
-      }
+      
   }
   .heading {
       background-color: #ececec;
