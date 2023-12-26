@@ -1,5 +1,5 @@
 <template>
-    <nav>
+    <nav :class="{ 'scrolled': isScrolled }">
   <div class="wrapper">
     <ul class="nav-links">
       <li><a href="#">О городе</a></li>
@@ -12,8 +12,28 @@
 </template>
 <script>
 export default {
-    
-}
+  data() {
+    return {
+      isScrolled: false
+    };
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      const block = document.getElementById("MainPart");
+      const blockTop = block.offsetTop;
+      const blockHeight = block.clientHeight;
+
+      // Прокрутка, чтобы цвет начал меняться после половины компонента AboutCity
+      this.isScrolled = window.scrollY >= blockTop + blockHeight / 2;
+    }
+  },
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+};
 </script>
 <style lang="scss">
     nav{
@@ -24,6 +44,8 @@ export default {
         display: flex;
         justify-content: center;
         background: linear-gradient(180deg, white 0%, rgba(255, 255, 255, 0) 98%);
+        background-color: transparent; /* Исходный цвет (прозрачный) */
+        transition: background-color 0.5s ease, height 0.5s ease; /* Добавлено свойство height */
         .wrapper{
             position: relative;
             padding: 0px 30px;
@@ -48,8 +70,22 @@ export default {
                         background: #3A3B3C;
                         
                     }
+                    
                 }
             }
         }
+        &.scrolled {
+            background-image: none;
+            background-color: #1E1E1E;
+            height: 10%;
+
+        .nav-links {
+        li {
+            a {
+            color: #f2f2f2; /* Цвет текста при прокрутке */
+            }
+        }
+        }
+    }
     }
 </style>

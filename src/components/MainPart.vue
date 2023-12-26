@@ -1,5 +1,5 @@
 <template>
-<div class="main-part">
+<div class="main-part"  id="MainPart">
   <div class="welcome-message">Открой Молодечно с новой стороны: где каждый угол — история приключений.</div>
 </div>
 </template>
