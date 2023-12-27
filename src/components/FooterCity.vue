@@ -6,12 +6,11 @@
                 <div class="table-row heading">
                 </div>
                 <div class="table-row">
-                    <div class="row-item text-header-row-item"><a href="#">О городе</a></div>
-                    <div class="row-item text-header-row-item "><a href="#">Достопримечательности</a></div>
-                    <div class="row-item text-header-row-item "><a href="#">Развлечения</a></div>
-                    <div class="row-item text-header-row-item "><a href="#">Контакты</a></div>
-                <div class="row-item "><img src="../assets/Gerb.svg"></div>
-                
+                    <div class="row-item text-header-row-item"><a @click="scrollToSection('about')">О городе</a></div>
+                    <div class="row-item text-header-row-item"><a @click="scrollToSection('landmarkss')">Достопримечательности</a></div>
+                    <div class="row-item text-header-row-item"><a @click="scrollToSection('entertainment')">Развлечения</a></div>
+                    <div class="row-item text-header-row-item"><a @click="scrollToSection('contacts')">Контакты</a></div>
+                    <div class="row-item"><img src="../assets/Gerb.svg"></div>
                 </div>
                 <p class="row-item text-row-item">info@*.by</p>
                 <p class="row-item text-row-item">Информационно-исторический портал о Молодечно для жителей и гостей .</p>
@@ -25,8 +24,16 @@
 </template>
 <script>
 export default {
-    
+    methods: {
+    scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }
 }
+
 </script>
 <style lang="scss" scoped>
 .main-container {

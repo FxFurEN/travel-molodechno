@@ -2,11 +2,11 @@
   <div>
     <HeaderBar/>
     <MainPart class="otstyp"/>
-    <AboutCity class="otstyp"/>
-   // <LandmarkBlock class="otstyp"/>
-    <EntertainmentList class="otstyp"/>
+    <AboutCity class="otstyp" id="about"/>
+    <LandmarkBlock class="otstyp" id="landmarkss"/>
+    <EntertainmentList class="otstyp" id="entertainment"/>
     <InteractiveMap class="otstyp"/>
-    <FooterCity/>
+    <FooterCity id="contacts"/>
   </div>
 </template>
 <script>
@@ -31,8 +31,6 @@ export default {
     EntertainmentList,
     InteractiveMap,
     FooterCity,
-
-  
   }
 }
 </script>

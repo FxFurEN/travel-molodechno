@@ -1,4 +1,4 @@
-<template>
+<template id="landmarkss">
   <div class="card">
     <p>{{ NameLandMark }}</p>
     <img :src="imageUtils.getImageUrl(ImageData)" alt="Landmark Image" v-if="isImage">

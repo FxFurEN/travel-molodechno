@@ -16,12 +16,12 @@
   <script>
   import { todoAPI } from '../../api/api';
   import EntertainmentItem from './EntertainmentItem.vue';
-  import EntertainmentInsert from './EntertainmentInsert.vue';
+  //import EntertainmentInsert from './EntertainmentInsert.vue';
   
   export default {
     components: {
       EntertainmentItem,
-      EntertainmentInsert,
+      //EntertainmentInsert,
     },
     data() {
       return {

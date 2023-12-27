@@ -2,10 +2,10 @@
     <nav :class="{ 'scrolled': isScrolled }">
   <div class="wrapper">
     <ul class="nav-links">
-      <li><a href="#">О городе</a></li>
-      <li><a href="#">Достопримечательности</a></li>
-      <li><a href="#">Развлечения</a></li>
-      <li><a href="#">Контакты</a></li>
+      <li><a @click="scrollToSection('about')">О городе</a></li>
+      <li><a @click="scrollToSection('landmarkss')">Достопримечательности</a></li>
+      <li><a @click="scrollToSection('entertainment')">Развлечения</a></li>
+      <li><a @click="scrollToSection('contacts')">Контакты</a></li>
     </ul>
   </div>
 </nav>
@@ -21,6 +21,12 @@ export default {
     window.addEventListener("scroll", this.handleScroll);
   },
   methods: {
+    scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
     handleScroll() {
       const block = document.getElementById("MainPart");
       const blockTop = block.offsetTop;
