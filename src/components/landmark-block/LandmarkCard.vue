@@ -1,8 +1,7 @@
 <template>
   <div class="card">
     <p>{{ NameLandMark }}</p>
-    <!-- Добавьте обработку изображения, если это необходимо -->
-    <!--<img :src="images" alt="Landmark Image">-->
+    <img :src="getImageUrl(ImageData)" alt="Landmark Image">
     <div class="card__content">
       <p class="card__title">Тест</p>
     </div>
@@ -13,10 +12,24 @@
 export default {
   props: {
     NameLandMark: String,
-    images: String
+    ImageData: ArrayBuffer
+  },
+  methods: {
+    getImageUrl(imageData) {
+      if (!imageData) {
+        return '';
+      }
+
+      const bytes = new Uint8Array(imageData);
+      const blob = new Blob([bytes], { type: 'image/jpeg' });
+      const dataUrl = URL.createObjectURL(blob);
+
+      return dataUrl;
+    }
   }
 }
 </script>
+
 
 <style lang="scss" scoped>
 .card {
@@ -34,8 +47,8 @@ export default {
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.card svg {
-  width: 48px;
+.card img {
+  width: 100%;
   fill: #333;
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }

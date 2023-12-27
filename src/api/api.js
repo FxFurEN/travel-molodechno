@@ -9,6 +9,9 @@ export const todoAPI = {
     getAllLandMark() {
       return instance.get('/loadLandMark');
     },
+    addLandmark(formData) {
+      return instance.post('/addLandmark', formData);
+    },
     getAllEntertaiment() {
         return instance.get('/loadgetAllEntertaiment');
       },

@@ -30,7 +30,7 @@ export default {
     AboutCity,
     EntertainmentCity,
     InteractiveMap,
-    FooterCity
+    FooterCity,
 
   
   }
