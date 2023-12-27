@@ -1,4 +1,3 @@
-
 import axios from 'axios'
 
 const instance = axios.create({
@@ -12,7 +11,10 @@ export const todoAPI = {
     addLandmark(formData) {
       return instance.post('/addLandmark', formData);
     },
+    addEntertainment(formData) {
+      return instance.post('/addEntertainment', formData);
+    },
     getAllEntertaiment() {
-        return instance.get('/loadgetAllEntertaiment');
+        return instance.get('/loadEntertaiment');
       },
 }

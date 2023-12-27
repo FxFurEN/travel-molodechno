@@ -3,8 +3,8 @@
     <HeaderBar/>
     <MainPart class="otstyp"/>
     <AboutCity class="otstyp"/>
-    <LandmarkBlock class="otstyp"/>
-    <EntertainmentCity class="otstyp"/>
+   // <LandmarkBlock class="otstyp"/>
+    <EntertainmentList class="otstyp"/>
     <InteractiveMap class="otstyp"/>
     <FooterCity/>
   </div>
@@ -15,7 +15,7 @@ import HeaderBar from './components/HeaderBar.vue';
 import MainPart from './components/MainPart.vue'
 import AboutCity from './components/AboutCity.vue';
 import LandmarkBlock from './components/landmark-block/LandmarkBlock.vue'
-import EntertainmentCity from  './components/EntertainmentCity.vue';
+import EntertainmentList from  './components/entertainment-block/EntertainmenList.vue';
 import InteractiveMap from './components/InteractiveMap.vue';
 import FooterCity from './components/FooterCity.vue';
 
@@ -28,7 +28,7 @@ export default {
     MainPart,
     LandmarkBlock,
     AboutCity,
-    EntertainmentCity,
+    EntertainmentList,
     InteractiveMap,
     FooterCity,
 

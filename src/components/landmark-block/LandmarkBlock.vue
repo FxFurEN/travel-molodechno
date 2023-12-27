@@ -37,7 +37,7 @@
           
           >
             <SwiperSlide v-for="card in cards" :key="card.ID">
-              <LandmarkCard :ImageData="card.ImageData.data" :ImageMapData="card.ImageMapData.data"/>
+              <LandmarkCard :ImageData="card.ImageData" :ImageMapData="card.ImageMapData"/>
             </SwiperSlide>
             </Swiper>
             

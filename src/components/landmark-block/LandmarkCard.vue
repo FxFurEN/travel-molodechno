@@ -1,14 +1,15 @@
 <template>
   <div class="card">
     <p>{{ NameLandMark }}</p>
-    <img :src="getImageUrl(ImageData)" alt="Landmark Image" v-if="isImage">
+    <img :src="imageUtils.getImageUrl(ImageData)" alt="Landmark Image" v-if="isImage">
     <div class="card__content">
-      <img :src="getImageUrl(ImageMapData)" alt="Landmark Map Image" v-if="isImageMap">
+      <img :src="imageUtils.getImageUrl(ImageMapData)" alt="Landmark Map Image" v-if="isImageMap">
     </div>
   </div>
 </template>
 
 <script>
+import * as imageUtils from '../../imageUtils';
 export default {
   props: {
     NameLandMark: String,
@@ -25,23 +26,10 @@ export default {
       return this.ImageMapData && typeof this.ImageMapData !== 'string';
     },
   },
-  methods: {
-    getImageUrl(imageData) {
-      if (!imageData) {
-        return '';
-      }
-
-      // Если данные представлены как строка, то возвращаем как есть
-      if (typeof imageData === 'string') {
-        return imageData;
-      }
-
-      const bytes = new Uint8Array(imageData);
-      const blob = new Blob([bytes], { type: 'image/jpeg' });
-      const dataUrl = URL.createObjectURL(blob);
-
-      return dataUrl;
-    },
+  data() {
+    return {
+      imageUtils,
+    };
   },
 };
 </script>
