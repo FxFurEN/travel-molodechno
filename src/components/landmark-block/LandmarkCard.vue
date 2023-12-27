@@ -1,9 +1,9 @@
 <template>
   <div class="card">
     <p>{{ NameLandMark }}</p>
-    <img :src="getImageUrl(ImageData)" alt="Landmark Image">
+    <img :src="getImageUrl(ImageData)" alt="Landmark Image" v-if="isImage">
     <div class="card__content">
-      <p class="card__title">Тест</p>
+      <img :src="getImageUrl(ImageMapData)" alt="Landmark Map Image" v-if="isImageMap">
     </div>
   </div>
 </template>
@@ -12,7 +12,18 @@
 export default {
   props: {
     NameLandMark: String,
-    ImageData: ArrayBuffer
+    ImageData: [ArrayBuffer, String],
+    ImageMapData: [ArrayBuffer, String],
+  },
+  computed: {
+    // Проверка наличия изображения
+    isImage() {
+      return this.ImageData && typeof this.ImageData !== 'string';
+    },
+    // Проверка наличия ImageMapData
+    isImageMap() {
+      return this.ImageMapData && typeof this.ImageMapData !== 'string';
+    },
   },
   methods: {
     getImageUrl(imageData) {
@@ -20,14 +31,19 @@ export default {
         return '';
       }
 
+      // Если данные представлены как строка, то возвращаем как есть
+      if (typeof imageData === 'string') {
+        return imageData;
+      }
+
       const bytes = new Uint8Array(imageData);
       const blob = new Blob([bytes], { type: 'image/jpeg' });
       const dataUrl = URL.createObjectURL(blob);
 
       return dataUrl;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 

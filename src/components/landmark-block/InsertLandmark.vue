@@ -2,6 +2,7 @@
     <div>
       <input type="text" v-model="nameLandmark" placeholder="Название достопримечательности" />
       <input type="file" @change="handleFileChange" />
+      <input type="file" @change="handleMapFileChange" />
       <button @click="addLandmark">Добавить</button>
     </div>
   </template>
@@ -14,6 +15,7 @@
       return {
         nameLandmark: '',
         selectedImage: null,
+        selectedMapImage: null,
       };
     },
     methods: {
@@ -23,11 +25,18 @@
           this.selectedImage = file;
         }
       },
+      handleMapFileChange(event) {
+        const file = event.target.files[0];
+        if (file) {
+          this.selectedMapImage = file;
+        }
+      },
       async addLandmark() {
         try {
           const formData = new FormData();
           formData.append('nameLandmark', this.nameLandmark);
           formData.append('image', this.selectedImage);
+          formData.append('mapImage', this.selectedMapImage);
   
           await todoAPI.addLandmark(formData);
   
@@ -40,4 +49,3 @@
     },
   };
   </script>
-  

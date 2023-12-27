@@ -37,7 +37,7 @@
           
           >
             <SwiperSlide v-for="card in cards" :key="card.ID">
-              <LandmarkCard :ImageData="card.ImageData.data" />
+              <LandmarkCard :ImageData="card.ImageData.data" :ImageMapData="card.ImageMapData.data"/>
             </SwiperSlide>
             </Swiper>
             
@@ -51,7 +51,7 @@
 </template>
 <script >
 import LandmarkCard from './LandmarkCard.vue';
-import InsertLandmark from './InsertLandmark.vue';
+//import InsertLandmark from './InsertLandmark.vue';
 import { todoAPI } from '../../api/api';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
@@ -60,7 +60,7 @@ import 'swiper/css';
 export default{
     components: {
       LandmarkCard,
-      InsertLandmark,
+     // InsertLandmark,
       Swiper,
       SwiperSlide
     },
