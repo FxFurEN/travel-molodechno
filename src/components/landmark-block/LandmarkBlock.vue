@@ -21,7 +21,7 @@
               </ul>
             </div>
           </div>
-          <Swiper
+          <Swiper class="card-item"
             effect="Coverflow"
             grabCursor="true"
             :slidesPerView="3"
@@ -36,8 +36,8 @@
             }"
           
           >
-              <SwiperSlide v-for="card in cards" :key="card.name">
-                <LandmarkCard :images="card.images" />
+              <SwiperSlide v-for="card in cards" :key="card.ID">
+                <LandmarkCard :NameLandMark="card.NameLandMark" />
               </SwiperSlide>
             </Swiper>
            
@@ -49,7 +49,7 @@
 </template>
 <script >
 import LandmarkCard from './LandmarkCard.vue';
-
+import { todoAPI } from '../../api/api';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
 import 'swiper/css';
@@ -62,13 +62,22 @@ export default{
     },
   data() {
     return {
-      cards: [
-        { name: '1', images: require('../../assets/test.svg') },
-        { name: '2', images: require('../../assets/test1.svg') },
-        { name: '3', images: require('../../assets/test.svg') },
-        { name: '4', images: require('../../assets/test1.svg') },
-      ],
+      cards: [],
     };
+  },
+  mounted() {
+    this.loadLandmarks();
+  },
+  methods: {
+    async loadLandmarks() {
+      try {
+        const response = await todoAPI.getAllLandMark();
+        this.cards = response.data;
+        console.log(this.cards);
+      } catch (error) {
+        console.error('Ошибка при загрузке данных из базы данных:', error);
+      }
+    },
   },
 };
 </script>
@@ -83,10 +92,16 @@ h2{
   font-size: 50px;
   color: #ffff;
 }
+.card-item{
+  height: auto;
+  width: 50%;
+}
 
 .container{
   background: linear-gradient(180deg, #000 7.21%, rgba(0, 0, 0, 0.31) 68.74%, rgba(0, 0, 0, 0.00) 100%),url(../../assets/landmark-bg.svg);
   background-size: cover;
+  padding-bottom: 5vh;
+  margin-bottom: 5vh;
   .main-container {
   width: 100%;
   height: 100%;

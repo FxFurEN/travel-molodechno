@@ -57,7 +57,7 @@ export default {
             opacity: 0.8;
             display: flex;
             font-size: 14px;
-            padding: 10vh 5vh 0 5vh;
+            padding: 10vh 0 0 2vh;
             
         }
         .text-header-row-item, a{

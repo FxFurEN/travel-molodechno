@@ -19,6 +19,7 @@ import EntertainmentCity from  './components/EntertainmentCity.vue';
 import InteractiveMap from './components/InteractiveMap.vue';
 import FooterCity from './components/FooterCity.vue';
 
+
 export default {
   
   name: 'App',
@@ -42,7 +43,7 @@ export default {
     font-family: Montserrat;
     margin: 0;
     color: #313131;
-    font-size: 48px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 700;
     line-height: 56px;

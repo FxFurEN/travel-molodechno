@@ -1,26 +1,27 @@
 <template>
-<div class="card">
-  <img :src="images" alt="Landmark Image">
-  <div class="card__content">
-    <p class="card__title">Тест</p>
+  <div class="card">
+    <p>{{ NameLandMark }}</p>
+    <!-- Добавьте обработку изображения, если это необходимо -->
+    <!--<img :src="images" alt="Landmark Image">-->
+    <div class="card__content">
+      <p class="card__title">Тест</p>
+    </div>
   </div>
-</div>
-
 </template>
 
 <script>
 export default {
-    props: {
-        name: String,
-        images: String
-    }
+  props: {
+    NameLandMark: String,
+    images: String
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .card {
   position: relative;
-  width: 90%;
+  width: 100%;
   height: 35%;
   background-color: #f2f2f2;
   border-radius: 10px;
@@ -67,13 +68,4 @@ export default {
   color: #333;
   font-weight: 700;
 }
-
-
-
-
-
-
-
-
-
 </style>
