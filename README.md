@@ -1,5 +1,16 @@
 # travel-molodechno
 
+Stack: 
+- HTML
+- CSS
+- Vue 3 (Options API)
+- Vue CLI
+- Axios
+- Swiper.js
+
+Backend
+- https://github.com/FxFurEN/back-travel
+
 ## Project setup
 ```
 npm install
